@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: act_bal_transform
+    description: This table filters customer data where account balance is <= 6000 
+
+    columns:
+      - name: c_custkey
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+
+  - name: orders_transform
+    description: This table has basic information about orders.
+
+    columns:
+      - name: o_orderkey
+        description: This is a unique identifier for a order
+        tests:
+          - unique
+          - not_null
+      - name: o_orderstatus
+        description: This column specifies the status of the order
+        tests:
+          - accepted_values:
+              values: ['P', 'F', 'O']

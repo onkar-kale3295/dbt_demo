@@ -1,0 +1,21 @@
+
+name: 'tpch_demo'
+version: '0.1'
+config-version: 2
+profile: 'dq_snowflake'
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_modules"
+    - "logs"
+
+models:
+  tpch_demo:
+      +transient: false
+      +materialized: table
